@@ -12,6 +12,9 @@ class Libbson < Formula
     sha256 "4a10d2bb952da3287c4492feca37eaf481234bb904656a1fb166754f2a2c5f9f" => :mavericks
   end
 
+  conflicts_with "libmongoc",
+                 :because => "libmongoc comes with a bundled libbson"
+
   def install
     system "./configure", "--enable-silent-rules", "--prefix=#{prefix}"
     system "make", "install"
