@@ -11,6 +11,15 @@ class Libmongoc < Formula
     sha256 "9778915da0d362a4fe4e8c17ab1614cfe53d4c2f9cbe9a7c3ae6062fa8f3560c" => :yosemite
   end
 
+  head do
+    url "https://github.com/mongodb/mongo-c-driver.git"
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
+
+  depends_on "pkg-config" => :build
+
   conflicts_with "libbson",
                  :because => "libmongoc comes with a bundled libbson"
 
